@@ -126,6 +126,10 @@
   <ItemGroup>
     <ClCompile Include="C:\Users\Jamie\Downloads\glad\src\glad.c" />
     <ClCompile Include="HelloWindow.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HelloWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
