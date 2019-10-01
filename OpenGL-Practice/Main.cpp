@@ -2,8 +2,6 @@
 #include "HelloWindow.h"
 #include "HelloTriangle.h"
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-
 int main()
 {
 	int hw = helloWindow();
