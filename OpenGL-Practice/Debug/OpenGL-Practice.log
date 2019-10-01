@@ -1,4 +1,4 @@
-﻿  Main.cpp
-HelloWindow.obj : error LNK2005: "void __cdecl framebuffer_size_callback(struct GLFWwindow *,int,int)" (?framebuffer_size_callback@@YAXPAUGLFWwindow@@HH@Z) already defined in HelloTriangle.obj
-HelloWindow.obj : error LNK2005: "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPAUGLFWwindow@@@Z) already defined in HelloTriangle.obj
-D:\source\repos\OpenGL-Practice\OpenGL-Practice\Debug\OpenGL-Practice.exe : fatal error LNK1169: one or more multiply defined symbols found
+﻿  HelloTriangle.cpp
+  Main.cpp
+  Generating Code...
+  OpenGL-Practice.vcxproj -> D:\source\repos\OpenGL-Practice\OpenGL-Practice\Debug\OpenGL-Practice.exe

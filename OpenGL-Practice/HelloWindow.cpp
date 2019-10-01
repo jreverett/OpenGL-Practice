@@ -1,7 +1,5 @@
+#include "Main.h"
 #include "HelloWindow.h"
-
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow *window);
 
 // Window params
 const unsigned int SCR_WIDTH = 800;
@@ -48,17 +46,4 @@ int helloWindow()
 
 	glfwTerminate();
 	return 0;
-}
-
-// Callback function for window resize rendering
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-	glViewport(0, 0, width, height);
-}
-
-// If the escape key is pressed, close the window
-void processInput(GLFWwindow *window)
-{
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
 }
