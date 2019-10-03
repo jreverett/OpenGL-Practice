@@ -1,3 +1,6 @@
+# Project specific
+/x64
+
 # Visual C++ cache files
 *.db
 *.ipch
