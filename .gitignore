@@ -1,4 +1,6 @@
 # Visual C++ cache files
+*.db
+*.ipch
 *.opendb
 
 # User-specific files
