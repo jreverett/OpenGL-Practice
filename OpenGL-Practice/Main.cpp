@@ -4,8 +4,13 @@
 
 int main()
 {
-	int hw = helloWindow();
-	int ht = helloTriangle();
+	if (helloWindow() == 1)
+		exit(EXIT_FAILURE);
+
+	if (helloTriangle() == 1)
+		exit(EXIT_FAILURE);
+
+	exit(EXIT_SUCCESS);
 }
 
 // Callback function for window resize rendering

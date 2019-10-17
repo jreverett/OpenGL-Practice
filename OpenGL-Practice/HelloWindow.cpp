@@ -19,7 +19,7 @@ int helloWindow()
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
-		return -1;
+		return 1;
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -28,7 +28,7 @@ int helloWindow()
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialise GLAD" << std::endl;
-		return -1;
+		return 1;
 	}
 
 	// Render loop

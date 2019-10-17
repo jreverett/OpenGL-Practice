@@ -34,7 +34,7 @@ int helloTriangle()
 	if (window == NULL) {
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
-		return -1;
+		return 1;
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -53,6 +53,7 @@ int helloTriangle()
 	if (!success) {
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 		std::cout << "vertex shader machine broke\n" << infoLog << std::endl;
+		return 1;
 	}
 
 	// fragment shader
@@ -65,6 +66,7 @@ int helloTriangle()
 	if (!success) {
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 		std::cout << "fragment shader machine broke\n" << infoLog << std::endl;
+		return 1;
 	}
 
 	// link shaders
@@ -78,6 +80,7 @@ int helloTriangle()
 	if (!success) {
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		std::cout << "shader program machine broke\n" << infoLog << std::endl;
+		return 1;
 	}
 
 	glDeleteShader(vertexShader);
@@ -87,7 +90,7 @@ int helloTriangle()
 	// Load OpenGL function pointers
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 		std::cout << "Failed to initialise GLAD" << std::endl;
-		return -1;
+		return 1;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////
