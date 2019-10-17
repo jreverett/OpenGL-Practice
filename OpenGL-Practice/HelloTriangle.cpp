@@ -5,14 +5,14 @@
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-const char *vertexShaderSource = "#version 330 core\n"
+const char *htVertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "void main()\n"
 "{\n"
 "    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 "}\0";
 
-const char *fragmentShaderSource = "#version 330 core\n"
+const char *htFragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
@@ -30,9 +30,9 @@ int helloTriangle()
 
 	//////////////////////////////////////////////////////////////////////////////////
 	// Create GLFW window
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Big O' Window", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Big Ol' Window", NULL, NULL);
 	if (window == NULL) {
-		std::cout << "Failed to create GLFW window" << std::endl;
+		std::cout << "ERROR::OPENGL::CREATE_WINDOW_FAILED" << std::endl;
 		glfwTerminate();
 		return 1;
 	}
@@ -40,11 +40,20 @@ int helloTriangle()
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 	//////////////////////////////////////////////////////////////////////////////////
+	// Load OpenGL function pointers
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
+		std::cout << "ERROR::GLAD::FAILED_TO_INIT_GLAD" << std::endl;
+		glfwTerminate();
+		return 1;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////
 	// Create and Compile the shader program
 	// vertex shader
 	unsigned int vertexShader;
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+	glShaderSource(vertexShader, 1, &htVertexShaderSource, NULL);
 	glCompileShader(vertexShader);
 
 	int success;
@@ -52,7 +61,7 @@ int helloTriangle()
 	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
 	if (!success) {
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		std::cout << "vertex shader machine broke\n" << infoLog << std::endl;
+		std::cout << "ERROR::SHADER::COMPILE::VERTEX_SHADER_COMPILATION_FAILED\n" << infoLog << std::endl;
 		glfwTerminate();
 		return 1;
 	}
@@ -60,13 +69,13 @@ int helloTriangle()
 	// fragment shader
 	unsigned int fragmentShader;
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+	glShaderSource(fragmentShader, 1, &htFragmentShaderSource, NULL);
 	glCompileShader(fragmentShader);
 
 	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
 	if (!success) {
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		std::cout << "fragment shader machine broke\n" << infoLog << std::endl;
+		std::cout << "\ERROR::SHADER::COMPILE::FRAGMENT_SHADER_COMPILATION_FAILED\n" << infoLog << std::endl;
 		glfwTerminate();
 		return 1;
 	}
@@ -81,7 +90,7 @@ int helloTriangle()
 	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 	if (!success) {
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		std::cout << "shader program machine broke\n" << infoLog << std::endl;
+		std::cout << "ERROR::PROGRAM::LINK::SHADER_PROGRAM_LINK_FAILED\n" << infoLog << std::endl;
 		glfwTerminate();
 		return 1;
 	}
@@ -92,7 +101,7 @@ int helloTriangle()
 	//////////////////////////////////////////////////////////////////////////////////
 	// Load OpenGL function pointers
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-		std::cout << "Failed to initialise GLAD" << std::endl;
+		std::cout << "ERROR::GLAD::FAILED_TO_INIT_GLAD" << std::endl;
 		glfwTerminate();
 		return 1;
 	}

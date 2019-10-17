@@ -1,6 +1,7 @@
 #include "Main.h"
 #include "HelloWindow.h"
 #include "HelloTriangle.h"
+#include "HelloShaders.h"
 
 int main()
 {
@@ -8,6 +9,9 @@ int main()
 		exit(EXIT_FAILURE);
 
 	if (helloTriangle() == 1)
+		exit(EXIT_FAILURE);
+
+	if (helloShaders() == 1)
 		exit(EXIT_FAILURE);
 
 	exit(EXIT_SUCCESS);

@@ -129,17 +129,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="hs_fs_shader.txt" />
+    <None Include="hs_vs_shader.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\Jamie\Downloads\glad\src\glad.c" />
+    <ClCompile Include="HelloShaders.cpp" />
     <ClCompile Include="HelloTriangle.cpp" />
     <ClCompile Include="HelloWindow.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HelloShaders.h" />
     <ClInclude Include="HelloTriangle.h" />
     <ClInclude Include="HelloWindow.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
