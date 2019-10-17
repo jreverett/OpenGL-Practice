@@ -53,6 +53,7 @@ int helloTriangle()
 	if (!success) {
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 		std::cout << "vertex shader machine broke\n" << infoLog << std::endl;
+		glfwTerminate();
 		return 1;
 	}
 
@@ -66,6 +67,7 @@ int helloTriangle()
 	if (!success) {
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 		std::cout << "fragment shader machine broke\n" << infoLog << std::endl;
+		glfwTerminate();
 		return 1;
 	}
 
@@ -80,6 +82,7 @@ int helloTriangle()
 	if (!success) {
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		std::cout << "shader program machine broke\n" << infoLog << std::endl;
+		glfwTerminate();
 		return 1;
 	}
 
@@ -90,6 +93,7 @@ int helloTriangle()
 	// Load OpenGL function pointers
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 		std::cout << "Failed to initialise GLAD" << std::endl;
+		glfwTerminate();
 		return 1;
 	}
 

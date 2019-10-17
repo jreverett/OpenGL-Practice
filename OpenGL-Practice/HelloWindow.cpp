@@ -28,6 +28,7 @@ int helloWindow()
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialise GLAD" << std::endl;
+		glfwTerminate();
 		return 1;
 	}
 
