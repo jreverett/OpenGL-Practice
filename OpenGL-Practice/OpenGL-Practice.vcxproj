@@ -128,19 +128,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="hs_fs_shader.txt" />
     <None Include="hs_vs_shader.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Jamie\Downloads\glad\src\glad.c" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="HelloShaders.cpp" />
+    <ClCompile Include="HelloTextures.cpp" />
     <ClCompile Include="HelloTriangle.cpp" />
     <ClCompile Include="HelloWindow.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelloShaders.h" />
+    <ClInclude Include="HelloTextures.h" />
     <ClInclude Include="HelloTriangle.h" />
     <ClInclude Include="HelloWindow.h" />
     <ClInclude Include="Main.h" />
